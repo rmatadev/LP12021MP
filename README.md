@@ -17,7 +17,7 @@ Na resolução deste projecto deve ser utilizada a Linguagem de Programação C.
 - Evite duplicação de código. 
 - Considere a implementação de funções para melhorar a legibilidade, evitar a duplicação e criar soluções mais genéricas.
 - É proíbida a utilização de variáveis globais - i.e. variáveis declaradas fora de qualquer função.
-- Este trabalho poderá ser realizado individualmente ou em grupos com o máximo de 2 alunos.
+- Este trabalho será realizado individualmente.
 
 Para a realização deste projecto, os alunos deverão adquirir as seguintes competências:
 - Manipulação de ficheiros
@@ -25,13 +25,12 @@ Para a realização deste projecto, os alunos deverão adquirir as seguintes com
 - Strings
 - Ciclos
 - Condições
-- Trabalho em grupo
 
 ## 1.2 Descrição
 
-O objectivo desta primeira parte do projecto é desenvolver um programa capaz de ler um ficheiro de configuração contendo o mapa com a localização de uma série de minas. e deverá fornecer ao utilizador uma interface para fazer alterações ao mapa - adicionar novas minas ou rebentar uma mina existente.
+O objectivo desta primeira parte do projecto é desenvolver um programa capaz de ler um ficheiro de configuração contendo o mapa com a localização de uma série de minas. e deverá fornecer ao utilizador uma interface para fazer alterações ao mapa - adicionar novas minas ou explodir uma mina existente.
 
-Cada posição no mapa representa-se por duas coordenadas (X, Y). Estas coordenadas são valores inteiros e, nesta primeira fase, podem assumir valores no intervalo [0, 24]. Cada uma das coordenadas do mapa poderá estar vazia (sem mina) ou ter uma mina. Cada mina poderá assumir apenas 2 estados, ou armed ou off (armada ou rebentada). 
+Cada posição no mapa representa-se por duas coordenadas (X, Y). Estas coordenadas são valores inteiros e, nesta primeira fase, podem assumir valores no intervalo [0, 24]. Cada uma das coordenadas do mapa poderá estar vazia (sem mina) ou ter uma mina. Cada mina poderá assumir apenas 2 estados, ou armed ou off (armada ou explodida). 
 
 ![mapa](map.png)
 
@@ -161,7 +160,7 @@ A ser preenchido.
 * Ficheiro `.c` com código devidamente comentado e indentado:
     - Deve implementar as funcionalidades pedidas.
     - O código deverá ser submetido na plataforma PANDORA [(2)](#ref2) até às **23:59 do dia 3 de Janeiro de 2021** no *contest* **IC2020MP**.
-    - A plataforma corre automaticamente uma série de testes e no fim atribui uma classificação **indicativa**. Os alunos deverão analisar o relatório emitido pela plataforma e poderão alterar o código e voltar a submeter o trabalho. Neste trabalho não haverá limite de submissões.
+    - A plataforma corre automaticamente uma série de testes e no fim atribui uma classificação **indicativa**. Os alunos deverão analisar o relatório emitido pela plataforma e poderão alterar o código e voltar a submeter o trabalho. **Neste trabalho haverá limite de submissões!**
       A plataforma não permite a entrega de trabalhos após a data e hora limite.
     - Incorrecta indentação do código poderá originar penalizações na nota.
 * Ficheiro .zip contendo o relatório em formato [md] e os ficheiros de input criados.
