@@ -28,7 +28,7 @@ Para a realização deste projecto, os alunos deverão adquirir as seguintes com
 
 ## 1.2 Descrição
 
-O objectivo desta primeira parte do projecto é desenvolver um programa capaz de ler um ficheiro de configuração contendo o mapa com a localização de uma série de minas. e deverá fornecer ao utilizador uma interface para fazer alterações ao mapa - adicionar novas minas ou explodir uma mina existente.
+O objectivo desta primeira parte do projecto é desenvolver um programa capaz de ler um ficheiro de configuração contendo o mapa com a localização de uma série de minas (bombas). e deverá fornecer ao utilizador uma interface para fazer alterações ao mapa - adicionar novas minas ou explodir uma mina existente.
 
 Cada posição no mapa representa-se por duas coordenadas (X, Y). Estas coordenadas são valores inteiros e, nesta primeira fase, podem assumir valores no intervalo [0, 24]. Cada uma das coordenadas do mapa poderá estar vazia (sem mina) ou ter uma mina. Cada mina poderá assumir apenas 2 estados, ou armed ou off (armada ou explodida). 
 
@@ -60,9 +60,9 @@ Quando o utilizador introduz o texto `read` seguido do nome do ficheiro `filenam
 
 ### 2.1.2 Opção `show`
 
-Quando o utilizador introduz o texto `show`, o programa deverá apresentar o mapa no terminal. Caso nenhum ficheiro tiver sido lido, o mapa deverá ser constituído por espaços vazios.
+Quando o utilizador introduz o texto `show`, o programa deverá apresentar o mapa no terminal. Caso nenhum ficheiro tiver sido lido, o mapa deverá ser constituído por espaços vazios (sem minas).
 
-No terminal o caracter `.`  representa uma mina em estado armed e o caracter `*` representa uma bomba off. As posições do mapa que estao vazias representam-se utilizando o caracter ` _` (underscore).
+No terminal o caracter `.`  representa uma mina em estado armed e o caracter `*` representa uma bomba em estado off. As posições do mapa que estao vazias representam-se utilizando o caracter `_` (underscore).
 
 Exemplo:
 
@@ -85,9 +85,9 @@ Quando o utilizador introduz o texto `trigger`, seguido das coordenadas X e Y, o
 
 Se, as coordenadas passadas pelo utilizador não forem válidas, o programa deverá imprimir no stdout a mensagem `Invalid coordinate`.
 
-Se, nas coordenadas passadas pelo utilizador, não existir uma mina, o programa deverá imprimir no stdou a mensagem `No mine at specified coordinate`.
+Se, nas coordenadas passadas pelo utilizador, não existir uma mina, o programa deverá imprimir no stdou a mensagem `There is no bomb at the specified coordinate`.
 
-Se, nas coordenadas passadas pelo utilizador, existir uma mina no estado off,  o programa deverá apenas continuar sem nenhuma mensagem de erro.
+Se, nas coordenadas passadas pelo utilizador, existir uma mina no estado off, o programa deverá apenas continuar sem nenhuma mensagem de erro.
 
 ### 2.1.4 Opção `plant`
 
@@ -101,9 +101,9 @@ Se, nas coordenadas passadas pelo utilizador, existir uma mina no estado `armed`
 
 ### 2.1.5 Opção `export`
 
-Quando o utilizador introduz o texto `export` seguido do nome do ficheiro `filename`, o programa deverá criar um ficheiro novo, com o nome `filename`, contendo a informação do mapa. O ficheiro deverá conter  a informação da localização de todas as minas, independente do seu estado. Ou seja, o ficheiro não fará distinção entre os estados das minas, assumindo que estão todas em estado armed. 
+Quando o utilizador introduz o texto `export` seguido do nome do ficheiro `filename`, o programa deverá criar um ficheiro novo, com o nome `filename`, contendo a informação do mapa. O ficheiro deverá conter a informação da localização de todas as minas e o seu estado.
 
-O formato do ficheiro de output deverá ser o mesmo do ficheiro de input. Ou seja, deverá conter uma série de pares de coordenadas X, Y. É indiferente a ordem pela qual cada par de coordenadas é escrita no ficheiro e também é indiferente o separador utilizado entre pares de coordenadas, podendo ser utilizado um ` `(espaço), `\t`(tab) ou `\n` (newline).
+O formato do ficheiro de output deverá ser o mesmo do ficheiro de input. É indiferente a ordem pela qual cada par de coordenadas é escrita no ficheiro, desde que o ficheiro respeite o formato de ficheiro input espeficicado.
 
 ### 2.1.6 Opção `quit`
 
@@ -116,36 +116,49 @@ Apresenta de novo o menu com as opções.
 
 O programa deverá ler um ficheiro de input. Este ficheiro terá tipicamente a extensão `.ini`, contudo outras extensões poderão ser utilizadas.  
 
-O ficheiro de input será um ficheiro codificado em texto que deverá conter um conjunto de pares de coordenadas que representam as localizações das minas em estado armed. As minas em estado off ou os espaços vazios não são representados no ficheiro. Cada coordenada representa-se por um par de valores inteiros (X Y) separados por um espaço em branco, sendo X o número da linha e Y o número da coluna. Não há nenhuma restrição relativa a mudanças de linha dentro do ficheiro ou em relação à ordem de cada par de coordenadas dentro do ficheiro.
-
-Exemplo de ficheiro de input:
-
+A primeira linha do conteúdo do ficheiro deverá conter o tamanho do mapa representado por dois interos, ex:
 ```
-0 1
-0 2
-0 3
-5 9 6 4 6 5
-0 4
-0 5
-
-1 4 2 3 2 6 2 9
-3 4
-3 9 4 9
-5 2
-5 3
-
-5 4
-6 9 7 6
-7 2
-8 3
-8 6
+25 25
+```
+As linhas seguintes contém a localização e estado de cada bomba. Cada linha pode apenas conter informação de uma bomba. Cada coordenada representa-se por um par de valores inteiros (X Y) separados por um espaço em branco (espaço ou tab), sendo X o número da linha e Y o número da coluna. O estado representa-se pelo caracter `.` ou `*`. Assim uma bomba em estado `armed` na coordenata 10 5 representa-se da seguinte forma:
+```
+10 5 .
+```
+Exemplo de ficheiro de input:
+```
+25 25
+0 1 . 
+0 2 .
+0 3 *
+5 9 *
+6 4 *
+6 5 .
+0 4 .
+0 5 *
+1 4 *
+2 3 .
+2 6 .
+2 9 .
+3 4 .
+3 9 .
+4 9 .
+5 2 .
+5 3 *
+5 4 .
+6 9 *
+7 6 .
+7 2 .
+8 3 .
+8 6 .
 ```
 
 A leitura do ficheiro deverá ser realizada até detectar o fim do ficheiro. 
 
 Caso não seja possível abrir o ficheiro, o programa deverá imprimir no stdout a mensagem `Error opening file`.
 
-Para cada coordenada X representada no ficheiro deverá existir uma coordenada Y. Caso isso não se verifique, significa que o ficheiro está mal formatado. Nesse caso o programa deverá mostrar no stream `stdout`a mensagem `File is corrupted`.
+Para cada coordenada X representada no ficheiro deverá existir uma coordenada Y e um estado. Caso isso não se verifique, significa que o ficheiro está mal formatado. Nesse caso o programa deverá mostrar no stream `stdout`a mensagem `File is corrupted`.
+
+
 A mesma mensagem deverá ser mostrada caso alguma coordenada presente no ficheiro não seja válida (fora dos limites).
 
 Os alunos deverão criar os seus próprios ficheiros de input para testarem os seus programas. Ficheiros de input criados pelos alunos deverão ser entregues no moodle juntamente com o relatório.
