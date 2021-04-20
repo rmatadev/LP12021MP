@@ -114,98 +114,106 @@ Apresenta de novo o menu com as opções.
 
 ### 2.2 Ficheiro de input
 
-O programa deverá ler um ficheiro de input. Este ficheiro terá tipicamente a extensão `.ini`, contudo outras extensões poderão ser utilizadas.  
+O programa deverá ler um ficheiro de input. Este ficheiro terá tipicamente a extensão `.ini`, contudo outras extensões poderão ser utilizadas.
 
-A primeira linha do conteúdo do ficheiro deverá conter o tamanho do mapa representado por dois interos, ex:
+Todas as linhas do ficheiro começadas pelo caracter `#` deverão ser ignoradas.
+A primeira linha útil (que não começa `#`) do ficheiro deverá conter o tamanho do mapa representado por dois interos, ex:
 ```
 25 25
 ```
-As linhas seguintes contém a localização e estado de cada bomba. Cada linha pode apenas conter informação de uma bomba. Cada coordenada representa-se por um par de valores inteiros (X Y) separados por um espaço em branco (espaço ou tab), sendo X o número da linha e Y o número da coluna. O estado representa-se pelo caracter `.` ou `*`. Assim uma bomba em estado `armed` na coordenata 10 5 representa-se da seguinte forma:
+As linhas seguintes contém o estado, representado pelo caracter `.` ou `*`, seguido da localização da bomba. Cada linha pode apenas conter informação de uma bomba. Cada localização (coordenada) representa-se por um par de valores inteiros (X Y) separados por um espaço em branco (espaço ou tab), sendo X o número da linha e Y o número da coluna. Assim uma bomba em estado `armed` na coordenata 10 5 representa-se da seguinte forma:
 ```
-10 5 .
+. 10 5
 ```
 Exemplo de ficheiro de input:
 ```
+# Ficheiro exemplo
 25 25
-0 1 . 
-0 2 .
-0 3 *
-5 9 *
-6 4 *
-6 5 .
-0 4 .
-0 5 *
-1 4 *
-2 3 .
-2 6 .
-2 9 .
-3 4 .
-3 9 .
-4 9 .
-5 2 .
-5 3 *
-5 4 .
-6 9 *
-7 6 .
-7 2 .
-8 3 .
-8 6 .
+. 0 1
+. 0 2
+* 0 3
+* 5 9
+* 6 4
+* 6 5
+* 0 4
+# comentario a ser ignorado
+. 0 5
+. 1 4
+. 2 3
+. 2 6
+. 2 9
+. 3 4
+. 3 9
+. 4 9
+. 5 2
+. 5 3
+. 5 4
+. 6 9
+. 7 6 texto ignorado
+. 7 2
+. 8 3
+. 8 6
 ```
 
 A leitura do ficheiro deverá ser realizada até detectar o fim do ficheiro. 
 
-Caso não seja possível abrir o ficheiro, o programa deverá imprimir no stdout a mensagem `Error opening file`.
+Caso não seja possível abrir o ficheiro, o programa deverá imprimir a mensagem `Error opening file` e deverá voltar a esperar novo comando do utilizador.
 
-Para cada coordenada X representada no ficheiro deverá existir uma coordenada Y e um estado. Caso isso não se verifique, significa que o ficheiro está mal formatado. Nesse caso o programa deverá mostrar no stream `stdout`a mensagem `File is corrupted`.
+Para cada bomba, deverá existir o estado, uma coordenada X e uma Y. Caso isso não se verifique, significa que o ficheiro está mal formatado. Nesse caso o programa deverá mostrar a mensagem `File is corrupted` e deverá voltar a esperar novo comando do utilizador. O caracter que separa o estado, a coordenada X e a coordenada Y poderá ser um espaço ou um tab, e todo o texto que apareça após a coodenada Y da bomba deverá ser simplesmente ignorado.
 
+A mesma mensagem deverá ser mostrada caso alguma coordenada presente no ficheiro não seja válida (fora dos limites). Se isso acontecer, a leitura do ficheiro deverá terminar e o programa deverá voltar a esperar novo comando do utilizador.
 
-A mesma mensagem deverá ser mostrada caso alguma coordenada presente no ficheiro não seja válida (fora dos limites).
+Caso seja detectado algum erro no ficheiro, o mapa deverá ser limpo, eliminando todas as bombas que tiverem sido lidas até ao momento.
 
-Os alunos deverão criar os seus próprios ficheiros de input para testarem os seus programas. Ficheiros de input criados pelos alunos deverão ser entregues no moodle juntamente com o relatório.
+Os alunos deverão criar os seus próprios ficheiros de input para testarem os seus programas. Ficheiros de input criados pelos alunos deverão ser entregues no moodle e serão sujeitos a avaliação. Os alunos deverão criar ficheiros de input válidos e inválidos para poderem testar correctamente os seus programas.
 
-
-## 3.  Exemplo de utilização
-
-A ser preenchido.
 
 ## 4. Material a entregar
 
 * Ficheiro `.c` com código devidamente comentado e indentado:
     - Deve implementar as funcionalidades pedidas.
-    - O código deverá ser submetido na plataforma PANDORA [(2)](#ref2) até às **23:59 do dia 3 de Janeiro de 2021** no *contest* **IC2020MP**.
+    - O código deverá ser submetido na plataforma PANDORA [(2)](#ref2) até às **23:59 do dia 16 de Maio de 2021** no *contest* **LP12021MP**.
     - A plataforma corre automaticamente uma série de testes e no fim atribui uma classificação **indicativa**. Os alunos deverão analisar o relatório emitido pela plataforma e poderão alterar o código e voltar a submeter o trabalho. **Neste trabalho haverá limite de submissões!**
       A plataforma não permite a entrega de trabalhos após a data e hora limite.
-    - Incorrecta indentação do código poderá originar penalizações na nota.
-* Ficheiro .zip contendo o relatório em formato [md] e os ficheiros de input criados.
-    - Este ficheiro deverá ser submetido no moodle [(3)](#ref3) até às  **23:59 do dia 4 de Janeiro de 2021**. 
+* Ficheiro .zip a ser submetido no moodle [(3)](#ref3) até às  **23:59 do dia 17 de Maio de 2021**, dentro do qual deverá estar:
+    - Fluxograma em formato pdf
+    - Ficheiros de input criados pelo aluno
+    - ficheiro .c com o código do aluno
 
-## 5. Relatório e Peer Review
+## 5. Fluxograma e Peer Review
 
-Cada grupo deverá produzir e entregar um relatório cujo objectivo é explicar em detalhe a solução encontrada. Note que um relatório não deve conter código. Se for absolutamente essencial, pode, pontualmente, mostrar trechos de código.
+Cada aluno deverá produzir e entregar um fluxograma em formato pdf que descreve o funcionamento da função que faz a leitura do ficheiro. O fluxograma não pode estar identificado, ou seja, não deverá conter qualquer referência ao seu autor.
 
-O relatório deve conter *no mínimo* as seguintes secções:
-   * Título
-   * Descrição da solução
-       * Fluxograma das funções principais
-   * Descrição do método utilizado para teste e debug
-   * Conclusões e matéria aprendida
-   * Referências
-      * Incluindo trocas de ideias com colegas, código aberto reutilizado e bibliotecas utilizadas
 
-Neste trabalho iremos aplicar uma técnica de *peer review* dos relatórios. Consequentemente os relatórios terão de ser anónimos - **os relatórios não podem conter os nomes, nem os números dos autores**. Apenas o nome do ficheiro terá de respeitar o formato: `relatorio_<nome_do_grupo>.md`. 
+Neste trabalho iremos aplicar uma técnica de *peer review*. Consequentemente os fluxogramas, assim como o código submetido no moodle terá de ser anónimo.
 
-Cada aluno (individualmente) terá que rever e avaliar pelo menos 3 relatórios de colegas seus. Esta avaliação consiste no preenchimento de formulário com critérios estipulados. Este formulário será disponibilizado na plataforma Moodle.
+Cada aluno (individualmente) terá que rever e avaliar o trabalho de 4 colegas seus. Esta avaliação consiste no preenchimento de um formulário com critérios estipulados. Este formulário será disponibilizado na plataforma Moodle.
 
-Alunos que não submetam a sua avaliação dos relatórios do colegas, não terão nota no Mini Projecto.
+**Alunos que não submetam a sua avaliação, não terão nota no Mini Projecto.**
 
-A avaliação dos relatórios terá um peso na avaliação. A avaliação das avaliações será feita pelo professor e serão aplicadas penalizações sobre esta componente sempre que forem detectadas avaliações injustificadas e que não correspondem à realidade. Por exemplo classificar um relatório com nota de 20 quando claramente o relatório não satisfaz critérios para uma classificação superior a 15.
+A avaliação dos colegas terá um peso na avaliação. A avaliação das avaliações será feita pelo professor e serão aplicadas penalizações sobre esta componente sempre que forem detectadas avaliações injustificadas e que não correspondem à realidade. Por exemplo classificar um trabalho com nota de 20 quando claramente o não satisfaz critérios para uma classificação superior a 15.
+
+
+### 5.1 Critérios de avaliação
+
+1. Qualidade de código - variáveis - peso 3 - As variáveis utilizadas têm nomes apropriados que facilitam a leitura do código?
+2. Qualidade de código - funções - peso 4 - o código foi correctamente dividido em funções facilitando a sua interpretação e evitando repetição de código?
+3. Qualidade de código - indentação - peso 5 - o código está correctamente indentado?
+4. Qualidade de código - cometários - peso 5 - o código está correctamente comentado? Deverá conter um comentário que descreve o objectivo de cada função e deverá conter comentários sempre que isso for benéfico para ajudar a interpretação do código.
+5. Qualidade de código - variáveis globais - peso 3 - o código utiliza variáveis globais que não são constantes?
+6. Qualidade de código - simplicidade - peso 3 - o código é simples e fácil de interpretar?
+7. Qualidade de código - eficiencia - peso 5 - a solução implementada é eficiente? I.e. atinge os objectivos consumindo o menos recursos (memória e tempo) possível?
+8. Fluxograma - peso 3 - o fluxograma está fiel ao código implementado?
+9. Fluxograma - peso 3 - o fluxograma descreve correctamente o funcionamento pedido no enunciado?
+10. Ficheiros de input - peso 2 - o aluno entregou pelo menos 1 ficheiro de input válido?
+11. Ficheiros de input - peso 2 - o aluno entregou pelo menos 1 ficheiro de input inválido?
 
 ## 6. Peso na avaliação
 
-O projecto vale 15% da nota final e será cotado de 0 a 20 valores, distribuídos seguinte forma:
+O projecto vale 15% da nota final da componente prática e será cotado de 0 a 20 valores, distribuídos seguinte forma:
 
-* 17  valores (85%) - Código (funcionalidade, indentação, comentários) - A classificação do Pandora servirá apenas de referência.
-* 3 valores (15%) - Relatório e Peer Review
+* 17  valores (85%) - Funcionamento
+* 3 valores (15%) - Peer Review (Fluxograma e código)
 
 ## 7. Honestidade Académica
 
