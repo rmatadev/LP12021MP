@@ -117,10 +117,12 @@ Apresenta de novo o menu com as opções.
 O programa deverá ler um ficheiro de input. Este ficheiro terá tipicamente a extensão `.ini`, contudo outras extensões poderão ser utilizadas.
 
 Todas as linhas do ficheiro começadas pelo caracter `#` deverão ser ignoradas. *Linhas em branco também deverão ser ignoradas.*
-A primeira linha útil (que não começa `#`) do ficheiro deverá conter o tamanho do mapa representado por dois interos, ex:
+A primeira linha útil (que não começa `#`) do ficheiro deverá conter o tamanho do mapa representado por dois interos:
 ```
 25 25
 ```
+*Neste projecto, o tamanho do mapa é fixo (25 linhas e 25 colunas) e portanto todos os ficheiros de input têm a primeira linha igual.*
+
 As linhas seguintes contém o estado, representado pelo caracter `.` ou `*`, seguido da localização da bomba. Cada linha pode apenas conter informação de uma bomba. Cada localização (coordenada) representa-se por um par de valores inteiros (X Y) separados por um espaço em branco (espaço ou tab), sendo X o número da linha e Y o número da coluna. Assim uma bomba em estado `armed` na coordenata 10 5 representa-se da seguinte forma:
 ```
 . 10 5
