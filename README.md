@@ -116,7 +116,7 @@ Apresenta de novo o menu com as opções.
 
 O programa deverá ler um ficheiro de input. Este ficheiro terá tipicamente a extensão `.ini`, contudo outras extensões poderão ser utilizadas.
 
-Todas as linhas do ficheiro começadas pelo caracter `#` deverão ser ignoradas.
+Todas as linhas do ficheiro começadas pelo caracter `#` deverão ser ignoradas. *Linhas em branco também deverão ser ignoradas.*
 A primeira linha útil (que não começa `#`) do ficheiro deverá conter o tamanho do mapa representado por dois interos, ex:
 ```
 25 25
