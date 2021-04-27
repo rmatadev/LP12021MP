@@ -165,7 +165,8 @@ Para cada bomba, deverá existir o estado, uma coordenada X e uma Y. Caso isso n
 
 A mesma mensagem deverá ser mostrada caso alguma coordenada presente no ficheiro não seja válida (fora dos limites). Se isso acontecer, a leitura do ficheiro deverá terminar e o programa deverá voltar a esperar novo comando do utilizador.
 
-Caso seja detectado algum erro no ficheiro, o mapa deverá ser limpo, eliminando todas as bombas que tiverem sido lidas até ao momento.
+Caso seja detectado algum erro no ficheiro, o mapa deverá ser limpo, eliminando todas as bombas que tiverem sido lidas até ao momento. 
+** Não é necessário guardar uma cópia do mapa existente. ** Se ocorrer um erro na leitura do ficheiro, o mapa deverá ficar limpo (sem bombas), independentemente de existirem bombas no mapa antes da leitura do ficheiro.
 
 Os alunos deverão criar os seus próprios ficheiros de input para testarem os seus programas. Ficheiros de input criados pelos alunos deverão ser entregues no moodle e serão sujeitos a avaliação. Os alunos deverão criar ficheiros de input válidos e inválidos para poderem testar correctamente os seus programas.
 
