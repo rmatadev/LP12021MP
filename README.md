@@ -52,7 +52,7 @@ sos                 - show menu
 +-----------------------------------------------------
 ```
 
-Sempre que o programa estiver à espera que o utilizador introduza um input, deverá imprimir, numa linha isolada, o caracter `>` - ver exemplo.
+Sempre que o programa estiver à espera que o utilizador introduza um input, deverá imprimir, numa linha isolada, o caracter `>` - ver exemplo. Caso o utilizador introduza uma opção que não existe no menu, o programa deverá imprimir a mensagem `Invalid command!`.
 
 ### 2.1.1 - Opção `read`
 
