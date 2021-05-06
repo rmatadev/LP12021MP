@@ -101,7 +101,7 @@ Quando o utilizador introduz o texto `trigger`, seguido das coordenadas X e Y, o
 
 Se, as coordenadas passadas pelo utilizador não forem válidas, o programa deverá imprimir no stdout a mensagem `Invalid coordinate`.
 
-Se, nas coordenadas passadas pelo utilizador, não existir uma mina, o programa deverá imprimir no stdou a mensagem `No mine at the specified coordinate`.
+Se, nas coordenadas passadas pelo utilizador, não existir uma mina, o programa deverá imprimir no stdou a mensagem `No mine at specified coordinate`.
 
 Se, nas coordenadas passadas pelo utilizador, existir uma mina no estado off, o programa deverá apenas continuar sem nenhuma mensagem de erro.
 
