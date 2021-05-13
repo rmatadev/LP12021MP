@@ -119,7 +119,7 @@ Se, nas coordenadas passadas pelo utilizador, existir uma mina no estado `armed`
 
 Quando o utilizador introduz o texto `export` seguido do nome do ficheiro `filename`, o programa deverá criar um ficheiro novo, com o nome `filename`, contendo a informação do mapa. O ficheiro deverá conter a informação da localização de todas as minas e o seu estado.
 
-O formato do ficheiro de output deverá ser o mesmo do ficheiro de input. É indiferente a ordem pela qual cada par de coordenadas é escrita no ficheiro, desde que o ficheiro respeite o formato de ficheiro input espeficicado.
+O formato do ficheiro de output deverá ser o mesmo do ficheiro de input. É indiferente a ordem pela qual cada par de coordenadas é escrita no ficheiro, desde que o ficheiro respeite o formato de ficheiro input especificado.
 
 ### 2.1.6 Opção `quit`
 
@@ -133,13 +133,13 @@ Apresenta de novo o menu com as opções.
 O programa deverá ler um ficheiro de input. Este ficheiro terá tipicamente a extensão `.ini`, contudo outras extensões poderão ser utilizadas.
 
 Todas as linhas do ficheiro começadas pelo caracter `#` deverão ser ignoradas. *Linhas em branco também deverão ser ignoradas.*
-A primeira linha útil (que não começa `#`) do ficheiro deverá conter o tamanho do mapa representado por dois interos:
+A primeira linha útil (que não começa `#`) do ficheiro deverá conter o tamanho do mapa representado por dois inteiros:
 ```
 25 25
 ```
 *Neste projecto, o tamanho do mapa é fixo (25 linhas e 25 colunas) e portanto todos os ficheiros de input têm a primeira linha igual.*
 
-As linhas seguintes contém o estado, representado pelo caracter `.` ou `*`, seguido da localização da bomba. Cada linha pode apenas conter informação de uma bomba. Cada localização (coordenada) representa-se por um par de valores inteiros (X Y) separados por um espaço em branco (espaço ou tab), sendo X o número da linha e Y o número da coluna. Assim uma bomba em estado `armed` na coordenata 10 5 representa-se da seguinte forma:
+As linhas seguintes contém o estado, representado pelo caracter `.` ou `*`, seguido da localização da bomba. Cada linha pode apenas conter informação de uma bomba. Cada localização (coordenada) representa-se por um par de valores inteiros (X Y) separados por um espaço em branco (espaço ou tab), sendo X o número da linha e Y o número da coluna. Assim uma bomba em estado `armed` na coordenada 10 5 representa-se da seguinte forma:
 ```
 . 10 5
 ```
@@ -177,7 +177,7 @@ A leitura do ficheiro deverá ser realizada até detectar o fim do ficheiro.
 
 Caso não seja possível abrir o ficheiro, o programa deverá imprimir a mensagem `Error opening file` e deverá voltar a esperar novo comando do utilizador.
 
-Para cada bomba, deverá existir o estado, uma coordenada X e uma Y. Caso isso não se verifique, significa que o ficheiro está mal formatado. Nesse caso o programa deverá mostrar a mensagem `File is corrupted` e deverá voltar a esperar novo comando do utilizador. O caracter que separa o estado, a coordenada X e a coordenada Y poderá ser um espaço ou um tab, e todo o texto que apareça após a coodenada Y da bomba deverá ser simplesmente ignorado.
+Para cada bomba, deverá existir o estado, uma coordenada X e uma Y. Caso isso não se verifique, significa que o ficheiro está mal formatado. Nesse caso o programa deverá mostrar a mensagem `File is corrupted` e deverá voltar a esperar novo comando do utilizador. O caracter que separa o estado, a coordenada X e a coordenada Y poderá ser um espaço ou um tab, e todo o texto que apareça após a coordenada Y da bomba deverá ser simplesmente ignorado.
 
 A mesma mensagem deverá ser mostrada caso alguma coordenada presente no ficheiro não seja válida (fora dos limites). Se isso acontecer, a leitura do ficheiro deverá terminar e o programa deverá voltar a esperar novo comando do utilizador.
 
